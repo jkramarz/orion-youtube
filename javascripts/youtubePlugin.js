@@ -4,12 +4,12 @@ window.onload = function() {
 
 	function convertLinkToVideo(text){
 	
-		var regexr_from = '^http(s)?:\/\/(.*)youtu((be(-nocookie)?\\.com\/watch\\?v=)|(\\.be\/))([\\w]+)(.*)';
-		var regexr_to = "^<iframe .* src=\"http(s)?://(.*)youtube(-nocookie)?\\.com/embed/([\\w]+)(.*)</iframe>$";
+		var regexr_from = '^http(s)?:\/\/(.*)youtu((be(-nocookie)?\\.com\/watch\\?v=)|(\\.be\/))([\\w\\-]+)(.*)';
+		var regexr_to = "^<iframe .* src=\"http(s)?://(.*)youtube(-nocookie)?\\.com/embed/([\\w\\-]+)(.*)</iframe>$";
 		
 		if(text.search(regexr_from) > -1){
 			//convert from link to video
-			return '<iframe width="420" height="315" src="http://www.youtube-nocookie.com/embed/' + text.match(regexr_from).slice(-2)[0] + '?rel=0" frameborder="0" allowfullscreen></iframe>';
+			return '<iframe width="420" height="315" src="http://www.youtube-nocookie.com/embed/' + text.match(regexr_from).slice(-2)[0] + '?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>';
 		}
 		if(text.search(regexr_to) > -1){
 			//convert from video to link

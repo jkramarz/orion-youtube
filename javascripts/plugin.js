@@ -10,6 +10,7 @@
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 
+
 /*global window ArrayBuffer addEventListener removeEventListener self XMLHttpRequest define*/
 (function() {
 	var global = this;
@@ -21,6 +22,7 @@
 			delete global.define;
 		};
 	}
+
 }());
 
 define(function() {
@@ -31,6 +33,7 @@ define(function() {
 		var _activePromises = {};
 		var _target = null;
 	
+
 		function _publish(message) {
 			if (_target) {
 				if (typeof(ArrayBuffer) === "undefined") { //$NON-NLS-0$
